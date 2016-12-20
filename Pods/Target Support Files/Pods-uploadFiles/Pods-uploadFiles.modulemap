@@ -1,0 +1,6 @@
+framework module Pods_uploadFiles {
+  umbrella header "Pods-uploadFiles-umbrella.h"
+
+  export *
+  module * { export * }
+}

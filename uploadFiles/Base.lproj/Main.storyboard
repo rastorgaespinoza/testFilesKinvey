@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="uploadFiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mlA-1a-gWF">
+                                <rect key="frame" x="76" y="274" width="223" height="120"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="usuario" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tbl-Qu-X2k">
+                                        <rect key="frame" x="0.0" y="0.0" width="223" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uEp-l7-7NK">
+                                        <rect key="frame" x="0.0" y="45" width="223" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggL-Gg-Cj2">
+                                        <rect key="frame" x="0.0" y="90" width="223" height="30"/>
+                                        <state key="normal" title="Ingresar"/>
+                                        <connections>
+                                            <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hOv-35-1WX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="mlA-1a-gWF" secondAttribute="trailing" constant="60" id="252-jG-igq"/>
+                            <constraint firstItem="mlA-1a-gWF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UJ2-Ex-yFH"/>
+                            <constraint firstItem="mlA-1a-gWF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="60" id="nIZ-Ur-rbA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="passTextfield" destination="uEp-l7-7NK" id="mrZ-RB-DFf"/>
+                        <outlet property="userTextfield" destination="tbl-Qu-X2k" id="AfP-N7-q4X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--SearchFileViewController-->
+        <scene sceneID="WaT-aF-vT1">
+            <objects>
+                <viewController storyboardIdentifier="SearchFileViewController" title="SearchFileViewController" id="QbH-Ot-obf" userLabel="SearchFileViewController" customClass="SearchFileViewController" customModule="uploadFiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KHC-XC-fux"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z7n-8z-Hn4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wng-h1-aEl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xbm-f8-S8r">
+                                <rect key="frame" x="16" y="28" width="343" height="333.5"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4b9-Ca-hg3">
+                                <rect key="frame" x="128" y="369" width="118" height="30"/>
+                                <state key="normal" title="Buscar imágenes"/>
+                                <connections>
+                                    <action selector="searchPhoto:" destination="QbH-Ot-obf" eventType="touchUpInside" id="ua8-4e-XtQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M96-oE-GtZ">
+                                <rect key="frame" x="139" y="429" width="97" height="30"/>
+                                <state key="normal" title="Subir a Kinvey"/>
+                                <connections>
+                                    <action selector="uploadPhoto:" destination="QbH-Ot-obf" eventType="touchUpInside" id="pl6-DR-RGd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="M96-oE-GtZ" firstAttribute="centerX" secondItem="4b9-Ca-hg3" secondAttribute="centerX" id="2n3-GJ-Dua"/>
+                            <constraint firstItem="4b9-Ca-hg3" firstAttribute="centerX" secondItem="xbm-f8-S8r" secondAttribute="centerX" id="5vQ-GO-BJC"/>
+                            <constraint firstItem="xbm-f8-S8r" firstAttribute="leading" secondItem="Wng-h1-aEl" secondAttribute="leadingMargin" id="BMB-w2-3sV"/>
+                            <constraint firstItem="4b9-Ca-hg3" firstAttribute="top" secondItem="xbm-f8-S8r" secondAttribute="bottom" constant="7.5" id="PPL-HC-cMI"/>
+                            <constraint firstItem="xbm-f8-S8r" firstAttribute="height" secondItem="Wng-h1-aEl" secondAttribute="height" multiplier="0.5" id="U7L-R1-sh5"/>
+                            <constraint firstItem="xbm-f8-S8r" firstAttribute="top" secondItem="KHC-XC-fux" secondAttribute="bottom" constant="8" id="YbR-4P-uOi"/>
+                            <constraint firstItem="M96-oE-GtZ" firstAttribute="top" secondItem="4b9-Ca-hg3" secondAttribute="bottom" constant="30" id="cGZ-jv-Lve"/>
+                            <constraint firstItem="xbm-f8-S8r" firstAttribute="trailing" secondItem="Wng-h1-aEl" secondAttribute="trailingMargin" id="pof-px-Yqp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="xbm-f8-S8r" id="dns-bR-oYU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WyQ-b7-0l3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="786" y="43"/>
+        </scene>
+    </scenes>
+</document>
