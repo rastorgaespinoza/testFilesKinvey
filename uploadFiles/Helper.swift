@@ -12,11 +12,11 @@ class Helper {
     
     static func fileCreate( fileName: String, data: NSData){
         
-        let baseURL = "/blob/kid_rJIZClLNg/"
-        var url = baseURL
-//        var file = File()
-        
-        var body = "{\"_filename\":\"" + fileName + "\",\"size\":" + url + ",\"mimeType\":\"image/png\"}"//+ "\", \"photoJson\":" + files.json
+//        let baseURL = "/blob/kid_rJIZClLNg/"
+//        let url = baseURL
+////        var file = File()
+//        
+//        var body = "{\"_filename\":\"" + fileName + "\",\"size\":" + url + ",\"mimeType\":\"image/png\"}"//+ "\", \"photoJson\":" + files.json
 //        dynamic resultCreateFile = KinveyBase.PostWithEncoded(url, body, KinveyConstant.encodedMaster);
 //        var jsonResul = JObject.Parse(resultCreateFile);
 //        string idFile = jsonResul._id;

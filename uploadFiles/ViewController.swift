@@ -8,17 +8,30 @@
 
 import UIKit
 import Kinvey
+import KeychainAccess
 
 class ViewController: UIViewController {
 
+    var keychain: Keychain!
+    
     @IBOutlet weak var userTextfield: UITextField!
     @IBOutlet weak var passTextfield: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        userTextfield.text = "rastorga"
-        passTextfield.text = "rastorga"
+        keychain = Keychain()
+        //        keychain[userTextfield.text!] = passTextfield.text
+        
+        let user = try? keychain.get("username")
+        let pass = try? keychain.get("password")
+        
+        if let user = user,
+            let pass = pass {
+            userTextfield.text = user
+            passTextfield.text = pass
+        }
+
     }
     
     @IBAction func login(_ sender: Any) {
@@ -30,6 +43,14 @@ class ViewController: UIViewController {
                 
                 present(alert, animated: true, completion: nil)
                 return
+        }
+        
+        do {
+            try keychain.set(user, key: "username")
+            try keychain.set(pass, key: "password")
+        }
+        catch let error {
+            print(error)
         }
         
         User.login(username: user, password: pass) { user, error in

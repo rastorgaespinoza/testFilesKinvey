@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import KeychainAccess
 
 class KinveyClient: NSObject {
     
@@ -29,7 +30,20 @@ class KinveyClient: NSObject {
     }()
     
     lazy var userCredentials: String = {
-        let appCredentials = "rastorga:rastorga"
+        
+        let keychain = Keychain()
+        
+        let user = try? keychain.get("username")
+        let pass = try? keychain.get("password")
+        
+        let appCredentials: String!
+        
+        if let username = user, let password = pass {
+            appCredentials = "\(username!):\(password!)"
+        }else{
+            appCredentials = ":"
+        }
+        
         let credEncoded = appCredentials.data(using: String.Encoding.utf8, allowLossyConversion: false)
         let credData = credEncoded!.base64EncodedString(options: [])
         let authValue = "Basic \(credData)"
@@ -145,10 +159,7 @@ class KinveyClient: NSObject {
         }) 
         
         task.resume()
-//
-        
 
-        //
     }
     
     ///Helper para creación de URL
@@ -182,7 +193,6 @@ class KinveyClient: NSObject {
         
         let newUrlString = urlString.replacingOccurrences(of: "%22null%22", with: "null")
         return URL(string: newUrlString) ?? nil
-//        return (components.URL ?? nil)
 
     }
     

@@ -63,7 +63,7 @@ func changePermission(){
         
         let fileInBundle = bundle.path(forResource: "/kid_rJIZClLNg/kinvey.realm", ofType: "management")
         
-        print(fileInBundle)
+        print(fileInBundle ?? "fileInBundle: es nil")
         let fileManager = FileManager.default
         
         let permission = NSNumber(value: 0o664)

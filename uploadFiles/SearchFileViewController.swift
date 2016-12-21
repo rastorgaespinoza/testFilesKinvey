@@ -25,13 +25,17 @@ class SearchFileViewController: UIViewController {
     
     @IBAction func uploadPhoto(_ sender: Any) {
         
-        guard let localPath = localPath else {
-//            let pathImage = localPath. else {
-        
+        guard localPath != nil,
+            let image = imageView.image else {
+                let alert = UIAlertController(title: "Seleccione Imagen", message: "Seleccione una imagen para almacenar", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil) )
+                
+                present(alert, animated: true, completion: nil)
             return
         }
         
-        if let data = UIImagePNGRepresentation(imageView.image!) as NSData? {
+        if let data = UIImagePNGRepresentation(image) as NSData? {
             KinveyClient.sharedInstance().uploadFiles(fileName: "asset.png", data: data, completion: { (success, error) in
                 guard error == nil else {
                     print(error!)
