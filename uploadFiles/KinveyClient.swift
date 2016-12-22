@@ -135,7 +135,7 @@ class KinveyClient: NSObject {
             
             request.addValue("3", forHTTPHeaderField: "X-Kinvey-API-Version")
             request.addValue(ParameterKeys.AppJSon, forHTTPHeaderField: ParameterKeys.ContentTypeJSon)
-            request.addValue("image/png", forHTTPHeaderField: "X-Kinvey-Content-Type")
+            request.addValue("image/jpeg", forHTTPHeaderField: "X-Kinvey-Content-Type")
             let bodyData: Data!
             do {
                 bodyData = try JSONSerialization.data(withJSONObject: body, options: [])

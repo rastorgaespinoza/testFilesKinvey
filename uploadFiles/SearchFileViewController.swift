@@ -35,8 +35,23 @@ class SearchFileViewController: UIViewController {
             return
         }
         
+        //
+//        let fileStore = FileStore.getInstance() //this line crash
+//        let file = File()
+//        file.publicAccessible = true
+//        let path = localPath //String path for the file that will be upload
+//        //Uploads a file using a file string path
+//        fileStore.upload(file, path: path!.path) { file, error in
+//            if let file = file {
+//                //success
+//                print("File: \(file)")
+//            } else {
+//                //fail
+//            }
+//        }
+        
         if let data = UIImagePNGRepresentation(image) as NSData? {
-            KinveyClient.sharedInstance().uploadFiles(fileName: "asset.png", data: data, completion: { (success, error) in
+            KinveyClient.sharedInstance().uploadFiles(fileName: "asset.jpg", data: data, completion: { (success, error) in
                 guard error == nil else {
                     print(error!)
                     return

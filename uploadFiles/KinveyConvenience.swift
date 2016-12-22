@@ -20,7 +20,7 @@ extension KinveyClient {
         
         let body: [String: AnyObject] = [
             "_filename": fileName as AnyObject,
-            "mimeType": "image/png" as AnyObject
+            "mimeType": "image/jpeg" as AnyObject
         ]
         
         guard let url = kinveyURL(baseURL) else {
@@ -92,7 +92,7 @@ extension KinveyClient {
         //        request.addValue(ParameterKeys.AppJSon, forHTTPHeaderField: ParameterKeys.ContentTypeJSon)
         request.addValue("\(data.length)", forHTTPHeaderField: "Content-Length")
         request.setValue(userCredentials, forHTTPHeaderField: ParameterKeys.Authorization)
-        request.addValue("image/png", forHTTPHeaderField: "Content-Type")
+        request.addValue("image/jpeg", forHTTPHeaderField: "Content-Type")
         
         let task = session.uploadTask(with: request, from: data as Data) { (data, response, error) in
             DispatchQueue.main.async{
@@ -191,27 +191,27 @@ extension KinveyClient {
                 }
                 
                 
-                if JSONSerialization.isValidJSONObject(data) {
-                    var parsedResult: AnyObject!
-                    
-                    do {
-                        parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as AnyObject
-                    } catch {
-                        let userInfo:[String:String] = [NSLocalizedDescriptionKey : "Ups, No pudimos leer la información obtenida desde el servidor. Favor intente nuevamente. Si el problema persiste, contactar a soporte."]
-                        let err = NSError(domain: "parseJSONWithCompletionHandler", code: 3, userInfo: userInfo)
-                        completion(nil, err as Error)
-                        return
-                    }
-                    
-                    completion(parsedResult, nil)
-                }else{
-                    print("error al parsear info obtenida.")
-                    let userInfo:[String:String] = [NSLocalizedDescriptionKey : "Ups, No pudimos leer la información obtenida desde el servidor. Favor intente nuevamente. Si el problema persiste, contactar a soporte."]
-                    let err = NSError(domain: "parseJSONWithCompletionHandler", code: 3, userInfo: userInfo)
-                    completion(nil, err as Error)
-                }
+//                if JSONSerialization.isValidJSONObject(data) {
+//                    var parsedResult: AnyObject!
+//                    
+//                    do {
+//                        parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as AnyObject
+//                    } catch {
+//                        let userInfo:[String:String] = [NSLocalizedDescriptionKey : "Ups, No pudimos leer la información obtenida desde el servidor. Favor intente nuevamente. Si el problema persiste, contactar a soporte."]
+//                        let err = NSError(domain: "parseJSONWithCompletionHandler", code: 3, userInfo: userInfo)
+//                        completion(nil, err as Error)
+//                        return
+//                    }
+//                    
+//                    completion(parsedResult, nil)
+//                }else{
+//                    print("error al parsear info obtenida.")
+//                    let userInfo:[String:String] = [NSLocalizedDescriptionKey : "Ups, No pudimos leer la información obtenida desde el servidor. Favor intente nuevamente. Si el problema persiste, contactar a soporte."]
+//                    let err = NSError(domain: "parseJSONWithCompletionHandler", code: 3, userInfo: userInfo)
+//                    completion(nil, err as Error)
+//                }
                 
-                
+                completion(data as AnyObject, nil)
                 
                 return
             }

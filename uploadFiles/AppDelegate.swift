@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Kinvey.sharedClient.initialize(
-            appKey: "kid_rJIZClLNg",
-            appSecret: "1ef2120cadd94c0eb82a06c1f50c8868"
+            appKey: KinveyClient.Constants.AppKey,
+            appSecret: KinveyClient.Constants.AppSecret
         )
         
         
